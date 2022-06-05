@@ -1,0 +1,21 @@
+.main__div{
+    color: brown;    
+    border: 2px solid black;
+    margin: 30px;
+    width: 40%;
+    background-color: beige;
+}
+
+.ext__css{
+    color: blue;
+}
+
+.main__div__class{
+    color: brown;    
+    border: 2px solid black;
+    position: relative;
+    left: 55vw;
+    top: 5vh;
+    width: 40%;  
+    background-color: aqua; 
+}

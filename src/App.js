@@ -1,25 +1,42 @@
-import logo from './logo.svg';
 import './App.css';
+import React, {useState} from 'react';
+import ClassBased from './ClassBased';
+import FunctionBased from './FunctionBased'
 
-function App() {
+const App = () => {
+
+    const[beforeClkFn, afterClickFn] = useState({beforeClk:false})
+    const[beforeClkClassFn, afterClkClassFn] = useState({beforeClkClassFn:false})
+
+    const function_comp_btn = () => {
+        beforeClkFn.state ? afterClickFn({state:false}) :afterClickFn({state:true})
+    }
+
+    const class_comp_btn = () => {
+        beforeClkClassFn.state ? afterClkClassFn({state:false}) : afterClkClassFn({state:true})
+    }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+    <>
+      <h1>
+          Styling using Functional and Class Components
+      </h1>
+      <section className='main__menu'>
+        <button onClick={function_comp_btn}>
+            To see styling in functional component
+        </button>
+        <button onClick={class_comp_btn}>
+            To see styling in class component
+        </button>        
+      </section>
+      <section>
+        {beforeClkFn.state && <FunctionBased /> }
+        {beforeClkClassFn.state && <ClassBased /> }
+      </section>
+    </>
   );
 }
 
 export default App;
+
